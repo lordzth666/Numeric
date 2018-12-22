@@ -1,0 +1,4 @@
+define (f x y) = (+ x y)
+define (g x y) = (+ (f x y) y)
+define (h x y) = (+ (g x y) y)
+mcint h 100000 1 4 5 9

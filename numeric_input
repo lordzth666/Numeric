@@ -1,0 +1,13 @@
+define (f x y) = (+ x y)
+define (g x y) = (+ (f x y) y)
+define (h x y z) = (+ (f (g x y) z) z)
+define (l x y z) = (+ (f (g x y) (h (+ x y) (- z x) (* x z))) z)
+define (k x y) = (l (h x y x) y x)
+define (p x y) = (k (h x y x) y)
+define (q x y) = (p (h x y x) y)
+define (s x y) = (/ (q x y) (p x y))
+mcint s 100000 x y 1 5 2 6
+define (r x y z z1 z2 z3) = (s (g z1 (f (k x y) y)) (l z3 z2 x))
+eval (r 2 3 3 9 4 3)
+mcint r 100000 1 2 3 4 5 6 2 3 4 5 6 7
+max r 10000 1 2 3 4 5 6
