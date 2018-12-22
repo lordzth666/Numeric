@@ -22,9 +22,6 @@ namespace Numeric {
         template<typename T>
         T MomentumOptimizer<T>::apply_gradient(T &t, const T &grad) {
             gradient = grad;
-            if (velocity < 1e-12) {
-                velocity = gradient;
-            }
             velocity = velocity * momentum + lr * gradient;
             gradient = velocity;
             t -= velocity;
